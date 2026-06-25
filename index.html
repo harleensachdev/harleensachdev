@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harleen Sachdev — ML Engineer</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --black: #0f0f0f;
+            --white: #fafafa;
+            --gray-light: #f0efec;
+            --gray-mid: #c8c7c3;
+            --gray-dark: #6b6a67;
+            --serif: 'Georgia', 'Times New Roman', serif;
+            --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--white);
+            color: var(--black);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2.5rem;
+            background: rgba(250, 250, 250, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e8e7e4;
+            z-index: 100;
+        }
+
+        .nav-name {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--gray-dark);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        /* ── LAYOUT ── */
+        section {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #e8e7e4;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gray-mid);
+            margin-bottom: 3rem;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 7rem;
+        }
+
+        .hero-eyebrow {
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-name {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: normal;
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: var(--black);
+            margin-bottom: 2rem;
+        }
+
+        .hero-proposition {
+            font-size: 1.2rem;
+            color: var(--black);
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--gray-dark);
+            max-width: 520px;
+            line-height: 1.75;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: opacity 0.15s;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.8;
+        }
+
+        .btn-ghost {
+            display: inline-block;
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border: 1px solid #d0cfcc;
+            letter-spacing: 0.01em;
+            transition: border-color 0.15s;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--black);
+        }
+
+        /* proof strip under hero CTAs */
+        .hero-proof {
+            margin-top: 3.5rem;
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .proof-item {}
+
+        .proof-number {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            letter-spacing: -0.03em;
+            color: var(--black);
+            line-height: 1;
+        }
+
+        .proof-label {
+            font-size: 12px;
+            color: var(--gray-dark);
+            letter-spacing: 0.04em;
+            margin-top: 0.25rem;
+        }
+
+        /* ── SERVICES ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: #e8e7e4;
+            border: 1px solid #e8e7e4;
+            margin-bottom: 3rem;
+        }
+
+        .service-cell {
+            background: var(--white);
+            padding: 1.75rem 1.75rem 2rem;
+        }
+
+        .service-index {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: var(--gray-mid);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        .service-desc {
+            font-size: 13px;
+            color: var(--gray-dark);
+            line-height: 1.65;
+        }
+
+        .services-note {
+            font-size: 13px;
+            color: var(--gray-dark);
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        .services-note a {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid #d0cfcc;
+        }
+
+        .services-note a:hover {
+            border-color: var(--black);
+        }
+
+        /* ── WORK ── */
+        .project-grid {
+            display: grid;
+            gap: 1px;
+            background: #e8e7e4;
+            border: 1px solid #e8e7e4;
+        }
+
+        .project-card {
+            background: var(--white);
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            display: grid;
+            grid-template-columns: 3rem 1fr;
+            gap: 0 1.5rem;
+            transition: background 0.12s;
+        }
+
+        .project-card:hover {
+            background: var(--gray-light);
+        }
+
+        .project-index {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            color: #dcdbd7;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            padding-top: 0.15rem;
+            user-select: none;
+        }
+
+        .project-body {}
+
+        .project-tag {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-dark);
+            margin-bottom: 0.6rem;
+        }
+
+        .project-title {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: normal;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.65rem;
+            color: var(--black);
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: var(--gray-dark);
+            line-height: 1.65;
+            margin-bottom: 0.85rem;
+        }
+
+        .project-stack {
+            font-size: 12px;
+            color: var(--gray-mid);
+            letter-spacing: 0.04em;
+        }
+
+        /* ── RESEARCH ── */
+        .pub-card {
+            border-left: 2px solid var(--black);
+            padding: 1.25rem 0 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .pub-label {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 0.4rem;
+            line-height: 1.45;
+        }
+
+        .pub-meta {
+            font-size: 13px;
+            color: var(--gray-dark);
+            margin-bottom: 0.6rem;
+        }
+
+        .pub-detail {
+            font-size: 13px;
+            color: #5a5a57;
+            line-height: 1.65;
+        }
+
+        /* ── CREDENTIALS ── */
+        .cred-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: #e8e7e4;
+            border: 1px solid #e8e7e4;
+            margin-bottom: 3rem;
+        }
+
+        .cred-cell {
+            background: var(--white);
+            padding: 1.5rem 1.75rem;
+        }
+
+        .cred-type {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-mid);
+            margin-bottom: 0.4rem;
+        }
+
+        .cred-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--black);
+            line-height: 1.4;
+        }
+
+        .cred-sub {
+            font-size: 12px;
+            color: var(--gray-dark);
+            margin-top: 0.25rem;
+        }
+
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            font-size: 12px;
+            padding: 0.35rem 0.85rem;
+            border: 1px solid #d8d7d3;
+            color: var(--gray-dark);
+            letter-spacing: 0.02em;
+        }
+
+        /* ── CONTACT ── */
+        .contact-heading {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: normal;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .contact-sub {
+            font-size: 1.05rem;
+            color: var(--gray-dark);
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+            line-height: 1.75;
+        }
+
+        .contact-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-line {
+            font-size: 1.05rem;
+            color: var(--gray-dark);
+        }
+
+        .contact-line a {
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid #d0cfcc;
+            transition: border-color 0.15s;
+        }
+
+        .contact-line a:hover {
+            border-color: var(--black);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 13px;
+            color: var(--gray-mid);
+            border-top: 1px solid #e8e7e4;
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                padding: 1rem 1.25rem;
+            }
+
+            .nav-links {
+                gap: 1.25rem;
+            }
+
+            section {
+                padding: 4rem 1.25rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cred-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-index {
+                display: none;
+            }
+
+            .hero-proof {
+                gap: 1.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <span class="nav-name">Harleen Sachdev</span>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <p class="hero-eyebrow">ML Engineer · Computer Vision · Edge AI</p>
+        <h1 class="hero-name">Harleen<br>Sachdev</h1>
+        <p class="hero-desc">
+            I'm an ML engineer who builds and ships end-to-end - from model architecture to production apps.
+            I have a computer vision app on the App Store and a few-shot learning paper provisionally accepted
+            in <em>Neural Computing and Applications</em>, co-authored with the University of Nottingham.
+            I take on contract work with early-stage startups.
+        </p>
+        <div class="cta-row">
+            <a href="#contact" class="btn-primary">Work with me</a>
+            <a href="#work" class="btn-ghost">See the work</a>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- SERVICES -->
+    <section id="services">
+        <p class="section-label">What I do</p>
+        <div class="services-grid">
+            <div class="service-cell">
+                <p class="service-index">01</p>
+                <p class="service-title">On-Device Computer Vision</p>
+                <p class="service-desc">I've shipped a real-time classification app that runs entirely on the device -
+                    no API calls, no backend, no latency. CoreML, custom CNN architectures, end to end.</p>
+            </div>
+            <div class="service-cell">
+                <p class="service-index">02</p>
+                <p class="service-title">iOS App Engineering</p>
+                <p class="service-desc">Native Swift development from first commit to App Store. I handle the ML
+                    pipeline, the product, and the submission - without a team around me.</p>
+            </div>
+            <div class="service-cell">
+                <p class="service-index">03</p>
+                <p class="service-title">Few-Shot & Low-Data ML</p>
+                <p class="service-desc">Published research in few-shot learning on real-world data. If your problem has
+                    limited labelled examples - which most early-stage problems do - this is where I work.</p>
+            </div>
+            <div class="service-cell">
+                <p class="service-index">04</p>
+                <p class="service-title">ML Feasibility & Prototyping</p>
+                <p class="service-desc">Before you hire a team, you need to know if the thing is possible. I'll build a
+                    working prototype and tell you clearly what the path to production looks like.</p>
+            </div>
+        </div>
+        <p class="services-note">
+            Available for short-term contracts and longer engagements.
+            If you're a founder building in this space, <a href="#contact">get in touch</a>.
+        </p>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- WORK -->
+    <section id="work">
+        <p class="section-label">Shipped work</p>
+        <div class="project-grid">
+            <a class="project-card" href="https://apps.apple.com/my/app/equipr/id6755603872">
+                <span class="project-index">01</span>
+                <div class="project-body">
+                    <p class="project-tag">iOS App · Computer Vision · 2025</p>
+                    <h2 class="project-title">Equipr</h2>
+                    <p class="project-desc">
+                        Sole-founder iOS app for real-time gym equipment classification. Built an entirely
+                        on-device CNN inference pipeline via Core ML — no cloud, no latency, no data leaving
+                        the device. Linked classifications to muscle analytics, instructional video modules,
+                        and a workout scheduling calendar.
+                    </p>
+                    <p class="project-stack">Swift · CoreML · iOS SDK · Computer Vision</p>
+                </div>
+            </a>
+            <a class="project-card" href="https://apps.apple.com/my/app/grindthebooks/id6749029116">
+                <span class="project-index">02</span>
+                <div class="project-body">
+                    <p class="project-tag">iOS App · EdTech · 2025</p>
+                    <h2 class="project-title">GrindTheBooks</h2>
+                    <p class="project-desc">
+                        Textbook-first study platform that breaks chapters into structured 5–10 day
+                        mini-courses. Generates personalised study plans, fast-track quizzes, and progress
+                        tracking aligned to AMC 10 and IGCSE syllabuses.
+                    </p>
+                    <p class="project-stack">Swift · iOS SDK · Flask</p>
+                </div>
+            </a>
+            <a class="project-card" href="https://teachmemusic.onrender.com/">
+                <span class="project-index">03</span>
+                <div class="project-body">
+                    <p class="project-tag">Web App · EdTech · 2024–Present</p>
+                    <h2 class="project-title">TeachMeMusic</h2>
+                    <p class="project-desc">
+                        Music practice tool for students in remote and underserved areas — rhythm checking,
+                        pitch accuracy measurement, and interactive score display. Supports MusicXML and MIDI.
+                        Optical Music Recognition in development for image-to-score upload.
+                    </p>
+                    <p class="project-stack">React.js · Flask · Render · Python</p>
+                </div>
+            </a>
+            <a class="project-card" href="https://harleensachdev.github.io/reportbullyingnow/">
+                <span class="project-index">04</span>
+                <div class="project-body">
+                    <p class="project-tag">Platform · Social Impact · 2024</p>
+                    <h2 class="project-title">ReportBullyingNow</h2>
+                    <p class="project-desc">
+                        Anonymous anti-bullying reporting platform adopted by schools in Kuala Lumpur.
+                        Includes trend analytics and policy tooling for school administrators.
+                    </p>
+                    <p class="project-stack">Python · SQL · Data Analytics</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- RESEARCH -->
+    <section id="research">
+        <p class="section-label">Research</p>
+        <div class="pub-card">
+            <p class="pub-label">First Author · Provisionally Accepted</p>
+            <p class="pub-title">Soundscapes of Distress: Few-Shot Learning for Cross-Species Avian Alarm Call Detection
+            </p>
+            <p class="pub-meta">Neural Computing and Applications · April 2026 · University of Nottingham collaboration
+            </p>
+            <p class="pub-detail">
+                Designed a hybrid few-shot learning framework for cross-species avian alarm call detection
+                across 889 hours of field soundscapes. Demonstrates the viability of data-efficient ML
+                approaches in noisy, real-world audio environments — directly applicable to production
+                systems with limited labelled data.
+            </p>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- CREDENTIALS -->
+    <section id="credentials">
+        <p class="section-label">Background</p>
+        <div class="cred-grid">
+            <div class="cred-cell">
+                <p class="cred-type">Award · 2026</p>
+                <p class="cred-name">Gold Medal — Malaysian Computing Challenge</p>
+                <p class="cred-sub">Malaysian Informatics and Programming Society · USACO participant</p>
+            </div>
+            <div class="cred-cell">
+                <p class="cred-type">Award · 2024</p>
+                <p class="cred-name">Overall Team Gold Medalist ×2 — KL Coding Cup</p>
+                <p class="cred-sub">Algorithmic problem-solving</p>
+            </div>
+            <div class="cred-cell">
+                <p class="cred-type">Award · 2024</p>
+                <p class="cred-name">Highest Scorer — American Scholastic Mathematics</p>
+                <p class="cred-sub">American Scholastic Mathematics Association</p>
+            </div>
+            <div class="cred-cell">
+                <p class="cred-type">Award · 2024</p>
+                <p class="cred-name">Gold Award ×3 — UKMT Challenges</p>
+                <p class="cred-sub">UK Mathematics Trust</p>
+            </div>
+        </div>
+        <div class="skill-chips">
+            <span class="chip">PyTorch</span>
+            <span class="chip">TensorFlow</span>
+            <span class="chip">CoreML</span>
+            <span class="chip">Swift / iOS</span>
+            <span class="chip">Python</span>
+            <span class="chip">C++</span>
+            <span class="chip">Few-Shot Learning</span>
+            <span class="chip">CNNs</span>
+            <span class="chip">Signal Processing</span>
+            <span class="chip">Edge Deployment</span>
+            <span class="chip">React.js</span>
+            <span class="chip">Flask</span>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <p class="section-label">Contact</p>
+        <h2 class="contact-heading">Let's talk.</h2>
+        <p class="contact-sub">
+            I take on a small number of contracts at a time.
+            If you're building something that needs ML to actually ship —
+            not just a model in a notebook — I'd like to hear about it.
+        </p>
+        <div class="contact-block">
+            <p class="contact-line">Email — <a href="mailto:harleennsachdev@gmail.com">harleennsachdev@gmail.com</a></p>
+            <p class="contact-line">LinkedIn — <a href="https://linkedin.com/in/harleen-sachdev-66a572336"
+                    target="_blank">linkedin.com/in/harleen-sachdev</a></p>
+            <p class="contact-line">Phone — <a href="tel:+601128567342">+60 11-2856-7342</a></p>
+        </div>
+    </section>
+
+    <footer>© 2026 Harleen Sachdev · Kuala Lumpur, Malaysia</footer>
+
+</body>
+
+</html>
