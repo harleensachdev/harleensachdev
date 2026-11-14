@@ -15,6 +15,9 @@ I work on machine learning for scarce-data problems (bioacoustics, medical imagi
 - [Siftr](https://github.com/harleensachdev/Siftr): dietary restriction checker (web)
 - GrindTheBooks: textbook-to-mini-course study app (iOS)
 - [TeachMeMusic](https://github.com/harleensachdev/teachmemusic): feedback app for music students
+- [ReportBullyingNow](https://github.com/harleensachdev/reportbullyingnow): anonymous bullying-reporting platform, presented to my school board
+- [stream-web](https://github.com/harleensachdev/stream-web): live-streaming platform for peer mentoring
+- [tutorviolin](https://github.com/harleensachdev/tutorviolin): Swift prototype of TeachMeMusic
 
 ### Currently building
 - UK Rocketry Challenge 2027 (team entry)
