@@ -1,6 +1,6 @@
 ## Harleen Sachdev
 
-I work on machine learning for scarce-data problems (bioacoustics, medical imaging) and build and publish iOS apps. IB student at Sevenoaks School, applying to study Computer Science in the US.
+I work on machine learning for scarce-data problems (bioacoustics, medical imaging) and build and publish iOS apps.
 
 **Open to:** internships, work experience and contract projects with companies building software or hardware.
 
