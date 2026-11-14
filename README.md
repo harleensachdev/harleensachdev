@@ -12,7 +12,7 @@ I work on machine learning for scarce-data problems (bioacoustics, medical imagi
 ### Projects
 - [CT Segmentation Viewer](https://github.com/harleensachdev/CTSegmentationViewer): browser-based CT viewer with organ segmentation overlays
 - [Equipr](https://github.com/harleensachdev/gym_detector): on-device gym machine recognition (iOS, Core ML)
-- [Siftr](https://github.com/harleensachdev/Siftr): dietary restriction checker (iOS)
+- [Siftr](https://github.com/harleensachdev/Siftr): dietary restriction checker (web)
 - GrindTheBooks: textbook-to-mini-course study app (iOS)
 - [TeachMeMusic](https://github.com/harleensachdev/teachmemusic): feedback app for music students
 
