@@ -22,4 +22,4 @@ I work on machine learning for scarce-data problems (bioacoustics, medical imagi
 - Accessibility tools for disabled children
 
 ### Contact
-[LinkedIn]([YOUR-LINKEDIN-URL](https://www.linkedin.com/in/harleen-sachdev-70800827a/)) | harleennsachdev@gmail.com
+[LinkedIn]([https://www.linkedin.com/in/harleen-sachdev-70800827a/]) | harleennsachdev@gmail.com
